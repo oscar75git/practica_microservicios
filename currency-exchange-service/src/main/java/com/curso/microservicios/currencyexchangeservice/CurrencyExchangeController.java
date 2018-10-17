@@ -24,7 +24,7 @@ public class CurrencyExchangeController{
     public ExchangeValue retrieveExchangeValue
         (@PathVariable String from, @PathVariable String to){
         
-        ExchangeValue exchangeValue =
+        /*ExchangeValue exchangeValue =
                 repository.findByFromAndTo(from, to);
         
         exchangeValue.setPort(
@@ -32,7 +32,9 @@ public class CurrencyExchangeController{
         
         logger.info("{}", exchangeValue);
         
-        return exchangeValue;
+        return exchangeValue;*/
+    	throw new RuntimeException("Not available");
+
     }
 
 	
