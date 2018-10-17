@@ -17,3 +17,5 @@ security:
 spring:
   thymeleaf:
     cache: false
+
+limits-service.endpoint: http://localhost:8080/limits
