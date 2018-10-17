@@ -1,0 +1,24 @@
+package com.curso.microservicios.limitsservice;
+
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class RabbitMQSender {
+    
+    
+    @Autowired
+    private AmqpTemplate rabbitTemplate;
+    
+    @Autowired
+    RabbitMQPropertyConfiguration configuration;
+    
+    public void send(Configuration limits) {
+        rabbitTemplate.convertAndSend(configuration.getExchange(), configuration.getRoutingkey(), limits);
+        System.out.println("Send msg = " + limits);
+        
+    }
+    
+    
+}

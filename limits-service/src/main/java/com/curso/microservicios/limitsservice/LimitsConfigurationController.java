@@ -13,11 +13,16 @@ public class LimitsConfigurationController {
 
     @Autowired
     private Configuration configuration;
+    
+    @Autowired
+    private RabbitMQSender sender;
 
     @GetMapping("/limits")
     public Configuration retrieveLimitsFromConfigurations() {
     	
-        return new Configuration(configuration.getMaximum(),
+    	sender.send(configuration);
+    	
+    	return new Configuration(configuration.getMaximum(),
                 configuration.getMinimum());
     }
     
